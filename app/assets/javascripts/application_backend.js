@@ -40,7 +40,6 @@
 //= require bootstrap-datepicker
 //= require front/province
 //= require bootstrap-select.min
-//= require autonumeric
 //= require back/pages/tablesDatatables
 //= require jquery.lazyload
 

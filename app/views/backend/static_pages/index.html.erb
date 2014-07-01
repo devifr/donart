@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">List Static Page</h3>
+  </div>
+  <div class="panel-body">
+    <%= link_to 'New', new_backend_static_page_path, class: 'btn btn-default' %>
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @static_pages.each do |static_page| %>
+          <tr>
+            <td>
+              <%= link_to static_page.code, backend_static_page_path(static_page) %>
+            </td>
+            <td>
+              <%= link_to 'Edit', edit_backend_static_page_path(static_page) %>
+              <%= link_to 'Delete', backend_static_page_path(static_page) ,method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="panel-footer">
+      <%= paginate @static_pages %>
+    </div>
+  </div>
+</div>

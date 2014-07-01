@@ -1,0 +1,18 @@
+<%= form_for @static_page, url: (@static_page.new_record? ? backend_static_pages_path : backend_static_page_path(@static_page)), method: (@static_page.new_record? ? 'post' : 'put'), html: { role: 'form' } do |f| %>
+  <div class="form-group">
+    <%= f.label :code %>
+    <%= f.text_field :code, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.cktext_area :description, class: 'ckeditor form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Save', class: 'btn btn-primary' %>
+    <%= link_to 'Back', :back, class: 'btn btn-default' %>
+  </div>
+<% end %>
