@@ -5,7 +5,7 @@
 @import url(../../../../fonts.googleapis.com/css_ae7521fb.css);
 
 
-body{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;color:#394263;font-size:13px;background-color:#222}
+body{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;color:#394263;font-size:13px;}
 #main-container,#page-container{min-width:320px}
 #page-container{width:100%;padding:0;margin:0 auto;overflow-x:hidden;-webkit-transition:background-color .2s ease-out;transition:background-color .2s ease-out}
 #page-container,#sidebar{background-color:#394263}

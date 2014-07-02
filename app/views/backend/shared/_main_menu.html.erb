@@ -1,0 +1,23 @@
+  <ul class="nav navbar-nav">
+    <li class="">
+      <%= link_to 'Example', '#' %>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Master <b class="caret"></b></a>
+
+      <ul class="dropdown-menu">
+        <li class="<%= 'active' if controller_name == 'static_pages' %>">
+          <%= link_to 'Static Pages', backend_static_pages_path %>
+        </li>
+        <li class="divider"></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li class="<%= 'active' if controller_name == 'profiles' %>">
+      <%= link_to current_backend_admin.email, '#!' %></li>
+    <li class="btn-default">
+      <%= link_to 'Logout', destroy_backend_admin_session_path, method: :delete %>
+    </li>
+  </ul>
