@@ -12,111 +12,119 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.min
 //= require front/js/jquery-1.11.0.min
 //= require front/js/bootstrap
 //= require front/js/jquery.easing.1.3
 //= require front/js/jquery.bxslider
-// require front/js/jquery.mousewheel
-// require front/js/jquery.selectik
-// require front/js/jquery.mousewheel-3.0.4.pack
-// require front/js/jquery.countdown
-// require front/js/jquery.checkbox
+//= require front/js/jquery.mousewheel
+//= require front/js/jquery.selectik
+//= require front/js/jquery.mousewheel-3.0.4.pack
+//= require front/js/jquery.countdown
+//= require front/js/jquery.checkbox
 //= require jquery-auto
-//= require front/js/js
-//= require front/js/vehicles
 //= require front/js/jquery.fancybox
-//= require front/province
 //= require bootstrap-datepicker
-//= require front/calculation
-//= require front/culation
 //= require gmap3.min
 //= require jquery.share
 //= require jquery.lazyload
+//= require demoad
+//= require gallery
+//= require ios-orientationchange-fix
+//= require jquery-slider
+//= require jquery.colorbox-min
+//= require jquery.easing.min
+//= require jquery.elastislide
+//= require jquery.flexisel
+//= require jquery.imagesloaded
+//= require jquery.magnific-popup
+//= require jquery.mixitup.min
+//= require jquery.swipebox.min
+//= require jquery.tmpl.min
+//= require jquery.wmuSlider
+//= require jquery.wookmark
+//= require modernizr.custom.min
 
-$(function() {
-    $("img").show().lazyload({
-      effect : "fadeIn"
+$(document).ready(function() {
+  $('.popup-with-zoom-anim').magnificPopup({
+    type: 'inline',
+    fixedContentPos: false,
+    fixedBgPos: true,
+    overflowY: 'auto',
+    closeBtnInside: true,
+    preloader: false,
+    midClick: true,
+    removalDelay: 300,
+    mainClass: 'my-mfp-zoom-in'
     });
-});
-
-$(document).ready(function(){
-
-  $('.fb-comments').attr('data-width', '100%');
-
-  $('#share1').share({
-      networks: ['facebook','pinterest','googleplus','twitter','linkedin','tumblr','email','stumbleupon','digg']
   });
 
-  $(document).trigger('refresh_autonumeric');
+(function ($){
+$('#tiles').imagesLoaded(function() {
+  // Prepare layout options.
+  var options = {
+    autoResize: true, // This will auto-update the layout when the browser window is resized.
+    container: $('#main1'), // Optional, used for some extra CSS styling
+    offset: 2, // Optional, the distance between grid items
+    itemWidth:200 // Optional, the width of a grid item
+  };
 
-  $(".fancybox").fancybox({
-      openEffect: "none",
-      closeEffect: "none"
+    // Get a reference to your grid items.
+    var handler = $('#tiles li');
+
+    // Call the layout function.
+    handler.wookmark(options);
+
+    // Init lightbox
+    $('a', handler).colorbox({
+      rel: 'lightbox'
+    });
   });
-  // datepicker
-  $('.datepicker').datepicker({
-    format: 'yyyy/mm/dd'
-  });
+})(jQuery);
 
-  // Select Province
-  $('#province_attributes').autocomplete({
-      data: window.provinces,
-      onItemSelect: function(result){
-
-        $('#city_attributes').removeData();
-        $('#city_attributes').unbind();
-        $('#city_attributes').autocomplete({
-          data: window.provinces_cities[result.value]
-        })
+$(window).load(function() {
+$("#flexiselDemo1").flexisel();
+$("#flexiselDemo2").flexisel({
+  enableResponsiveBreakpoints: true,
+    responsiveBreakpoints: {
+      portrait: {
+        changePoint:480,
+        visibleItems: 1
+      },
+      landscape: {
+        changePoint:640,
+        visibleItems: 2
+      },
+      tablet: {
+        changePoint:768,
+        visibleItems: 3
       }
-  });
-  $('#province_attributes').focus(function(){
-    $('#city_attributes').val('')
-  });
-
-  $('#brand_product').change(function(){
-    var url = $(this).data('url');
-    $.get(url, {brand: $(this).val()})
-      .done(function(data){
-        $('#model_product').html(data);
-      });
-  });
-
-  $('#product_category_id').change(function(){
-    if($(this).val() == '2'){
-      $('.cars').hide();
-    }else{
-      $('.cars').show();
     }
   });
 
-  $('#add-image').click(function(){
-    if($('.step_3 .col_3').length > 3){
-      $(this).hide();
-    }
-
-    if($('.set-3 .col-md-6').length > 3){
-      $(this).hide();
+$("#flexiselDemo3").flexisel({
+  visibleItems: 5,
+  animationSpeed: 1000,
+  autoPlay: true,
+  autoPlaySpeed: 3000,
+  pauseOnHover: true,
+  enableResponsiveBreakpoints: true,
+    responsiveBreakpoints: {
+      portrait: {
+        changePoint:480,
+        visibleItems: 1
+      },
+      landscape: {
+        changePoint:640,
+        visibleItems: 2
+      },
+      tablet: {
+        changePoint:768,
+        visibleItems: 3
+      }
     }
   });
 
-  $(".remove_fields.existing").click(function(){
-    $(this).closest('div.col_3').hide();
-    if($('.step_3 .col_3').length <= 3){
-      $('#add-image').show();
-    }
-
-    if($('.set-3 .col-md-6').length <= 3){
-      $('#add-image').show();
-    }
-  });
-
-  if($('.step_3 .col_3').length > 3){
-      $('#add-image').hide();
-    }
-
-  if($('.set-3 .col-md-6').length > 3){
-    $('#add-image').hide();
-  }
-
+tree
 });
+$('.example1').wmuSlider();
